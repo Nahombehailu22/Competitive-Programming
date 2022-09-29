@@ -5,7 +5,7 @@ class Solution:
         empDic = {}
         sentence = ""
         for word in words:
-            empDic[int(word[-1])] = word[:len(word)-1:]
+            empDic[word[-1]] = word[:-1]
         for i in sorted(empDic.keys()):
             sentence += empDic[i] + " "
         return sentence.strip()
