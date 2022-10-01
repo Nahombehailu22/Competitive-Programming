@@ -1,0 +1,18 @@
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        length = len(nums)
+        count =[0,0,0]
+        for obj in nums:
+            if obj == 0:
+                count[0] += 1
+            if obj == 1:
+                count[1] += 1
+            if obj == 2:
+                count[2] += 1
+        
+        nums[:count[0]] = [0] * count[0]
+        nums[count[0]:count[1]+ count[0] + 1] = [1] * count[1]
+        nums[count[0]+count[1]:count [0] + count[1] + count[2]+1] = [2] * count[2]
