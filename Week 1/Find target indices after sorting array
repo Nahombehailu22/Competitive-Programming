@@ -5,6 +5,6 @@ class Solution:
         for i in range (len(nums)):
             if (nums[i] == target):
                 res += [i]
-                if(nums[i] > target):
+            elif(nums[i] > target):
                     break
         return res
