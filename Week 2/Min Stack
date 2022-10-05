@@ -1,0 +1,20 @@
+class MinStack:
+
+    def __init__(self):
+        self.minStack = []
+        self.trackmin = []
+
+    def push(self, val: int) -> None:
+        self.minStack.append(val)
+        if not len(self.trackmin) or val <= self.trackmin[-1]:
+            self.trackmin.append(val)
+    def pop(self) -> None:
+
+        if self.trackmin[-1] == self.minStack.pop():
+            self.trackmin.pop()
+
+    def top(self) -> int:
+        return self.minStack[-1]
+
+    def getMin(self) -> int:
+        return self.trackmin[-1]
