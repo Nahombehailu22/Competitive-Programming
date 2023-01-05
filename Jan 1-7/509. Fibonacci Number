@@ -1,0 +1,12 @@
+def sol(n):
+        if n == 0:
+            return 0   
+        elif n == 1:
+            return 1
+        else:
+            ans = sol(n-1) + sol(n-2)
+        return ans
+
+class Solution:
+    def fib(self, n: int) -> int:
+        return sol(n)
