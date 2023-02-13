@@ -1,0 +1,11 @@
+class Solution:
+    def maxCoins(self, piles: List[int]) -> int:
+        piles.sort()
+        ans = 0
+        if len(piles) == 0:
+            return 0
+        while len(piles):
+            piles.pop()
+            ans += piles.pop()
+            piles.pop(0)
+        return ans
