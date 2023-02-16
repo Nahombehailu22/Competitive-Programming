@@ -1,0 +1,18 @@
+class Solution:
+    def compress(self, chars: List[str]) -> int:
+        if len(chars) == 1:
+            return len(chars)
+        
+        length = len(chars)
+        count = 1
+        for i in range(length):
+            val = chars.pop(0)
+            if not chars or val != chars[0] or i == length - 1:
+                chars.append(val)
+                if count > 1:
+                    for x in str(count): chars.append(x)
+                count = 1
+            else:
+                count += 1
+                
+        return len(chars)
