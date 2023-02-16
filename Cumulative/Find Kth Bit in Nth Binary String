@@ -1,0 +1,16 @@
+class Solution:
+    def findKthBit(self, n: int, k: int) -> str:
+        def helper(n, k, R = True):
+            if k == 1: 
+                if R:
+                    return '0'
+                else:
+                    return '1'
+            mid = (1 << (n - 1))
+            if k < mid: return helper(n - 1, k, R)
+            if k > mid: return helper(n - 1, 2 * mid - k, not R)
+            if R:
+                return '1' 
+            else:
+                return '0'
+        return helper(n, k)
